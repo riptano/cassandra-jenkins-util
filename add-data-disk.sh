@@ -11,8 +11,8 @@ if grep $PARTITION /proc/partitions; then
     sudo rm -r /home/$USER
     sudo ln -s $MOUNTPOINT/$USER /home/$USER
     echo "Done Setting Up Data Disk."
-    ls -l /tmp
-    ls -l /home/$USER
+    ls -l /tmp /tmp/
+    ls -l /home/$USER /home/$USER/
     df -h
 else
     echo "Data Partition Not Found!"
