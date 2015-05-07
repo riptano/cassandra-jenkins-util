@@ -2,6 +2,7 @@
 PARTITION="sda2"
 MOUNTPOINT="/mnt"
 if grep $PARTITION /proc/partitions; then
+    sudo umount $MOUNTPOINT || /bin/true
     sudo mkfs.ext4 /dev/$PARTITION
     [ -d $MOUNTPOINT ] || sudo mkdir $MOUNTPOINT
     sudo mount /dev/$PARTITION $MOUNTPOINT
