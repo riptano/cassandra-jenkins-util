@@ -6,11 +6,8 @@ if grep $PARTITION /proc/partitions; then
     [ -d $MOUNTPOINT ] || sudo mkdir $MOUNTPOINT
     sudo mount /dev/$PARTITION $MOUNTPOINT
     sudo rsync -a /tmp $MOUNTPOINT/
-    sudo rsync -a /home/$USER $MOUNTPOINT/
     sudo rm -r /tmp
     sudo ln -s $MOUNTPOINT/tmp /tmp
-    sudo rm -r /home/$USER
-    sudo ln -s $MOUNTPOINT/$USER /home/$USER
     echo "Done Setting Up Data Disk."
 else
     echo "Data Partition Not Found!"
