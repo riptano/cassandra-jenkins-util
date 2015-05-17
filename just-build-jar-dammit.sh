@@ -1,4 +1,4 @@
-#!/bin/sh -xe
+#!/bin/sh -x
 for x in $(seq 1 3); do
     ant clean jar
     RETURN=$?
