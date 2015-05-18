@@ -2,12 +2,11 @@
 PARTITION="sda2"
 MOUNTPOINT="/mnt"
 if grep $PARTITION /proc/partitions; then
-    sudo mkfs.ext4 /dev/$PARTITION
+    sudo mkfs.ext4 -F /dev/$PARTITION
     [ -d $MOUNTPOINT ] || sudo mkdir $MOUNTPOINT
-    sudo mount /dev/$PARTITION $MOUNTPOINT
-    sudo rsync -a /tmp $MOUNTPOINT/
-    sudo rm -r /tmp
-    sudo ln -s $MOUNTPOINT/tmp /tmp
+    sudo mount /dev/$PARTITION -o noatime,nodiratime,barrier=0 $MOUNTPOINT
+    sudo mkdir -m 1777 $MOUNTPOINT/tmp
+    sudo sh -c "echo \"export TMPDIR=$MOUNTPOINT/tmp\" >> /etc/profile"
     echo "Done Setting Up Data Disk."
 else
     echo "Data Partition Not Found!"
