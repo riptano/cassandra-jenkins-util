@@ -5,7 +5,7 @@ sudo sh -c "echo \"umask 0022\" >> /etc/profile"
 java -version
 
 # install some basic packages we need
-sudo apt-get -y install ant ant-optional git libev-dev libyaml-dev lsof python-dev python-setuptools rsync screen wamerican
+sudo apt-get -y install ant ant-optional git libev-dev libyaml-dev lsof python-dev python-setuptools python-pip rsync screen wamerican
 # install some python modules that we need
 sudo pip install blist cassandra-driver cql decorator futures nose-test-select pycassa
 # ..use the latest ccm HEAD
