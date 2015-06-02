@@ -8,7 +8,7 @@ if grep $PARTITION /proc/partitions; then
     sudo mount -o noatime,nodiratime,barrier=0 /dev/$PARTITION $MOUNTPOINT
     sudo mkdir -m 1777 $MOUNTPOINT/tmp
     sudo sh -c "echo \"export TMPDIR=$MOUNTPOINT/tmp\" >> /etc/profile"
-    . /etc/profile
+    export TMPDIR=$MOUNTPOINT/tmp
     echo "Done Setting Up Data Disk."
     sudo mount -o remount,noatime,nodiratime,barrier=0 /dev/xvda1 /
     echo "Remounted / with noatime,nodiratime,barrier=0"
