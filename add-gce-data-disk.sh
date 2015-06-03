@@ -1,5 +1,5 @@
 #!/bin/sh -xe
-PARTITION="sda2"
+[ -z $PARTITION ] && PARTITION="sda2"
 MOUNTPOINT="/mnt"
 if grep $PARTITION /proc/partitions; then
     sudo umount $MOUNTPOINT || /bin/true
