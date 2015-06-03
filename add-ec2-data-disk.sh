@@ -1,5 +1,5 @@
 #!/bin/sh -xe
-PARTITION="xvdb"
+[ -z $PARTITION ] && PARTITION="xvdb"
 MOUNTPOINT="/mnt"
 if grep $PARTITION /proc/partitions; then
     sudo umount $MOUNTPOINT || /bin/true
