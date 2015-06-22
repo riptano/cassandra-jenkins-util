@@ -7,7 +7,7 @@ java -version
 # install some basic packages we need
 sudo apt-get -y install ant ant-optional git libev-dev libyaml-dev lsof python-dev python-setuptools rsync screen wamerican
 # install some python modules that we need
-sudo pip install blist cassandra-driver cql decorator futures nose-test-select pycassa
+sudo pip install blist cassandra-driver==2.6.0c1 cql decorator futures nose-test-select pycassa
 # ..use the latest ccm HEAD
 git clone https://github.com/pcmanus/ccm.git
 sudo pip install -e ccm
