@@ -15,19 +15,19 @@ sudo sh -c 'echo "export OPENJDK8_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64" >>
 # set default JDK
 if [[ "$JDK_VERSION" = 1.7_* ]]; then
     if [ -n "$USE_OPENJDK" ]; then
-        sudo update-java-alternatives --set java-1.7.0-openjdk-amd64
+        sudo update-java-alternatives --set java-1.7.0-openjdk-amd64 || true
     else
-        sudo update-java-alternatives --set java-7-oracle
+        sudo update-java-alternatives --set java-7-oracle || true
     fi
 elif [[ "$JDK_VERSION" = 1.8_* ]]; then
     if [ -n "$USE_OPENJDK" ]; then
-        sudo update-java-alternatives --set java-1.8.0-openjdk-amd64
+        sudo update-java-alternatives --set java-1.8.0-openjdk-amd64 || true
     else
-        sudo update-java-alternatives --set java-8-oracle
+        sudo update-java-alternatives --set java-8-oracle || true
     fi
 else
     # if passed no versions, set oracle jdk-7 as default, otherwise we get openjdk-7
-    sudo update-java-alternatives --set java-7-oracle
+    sudo update-java-alternatives --set java-7-oracle || true
 fi
 
 # which jdk do we have?
