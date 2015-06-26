@@ -9,6 +9,7 @@ java -version
 sudo apt-get -y install ant ant-optional git libev-dev libyaml-dev lsof python-dev python-setuptools python-pip rsync screen wamerican
 # install some python modules that we need
 sudo pip install blist cql decorator futures nose-test-select pycassa
+# install/upgrade the latest cassandra-driver in pypi, including pre-releases
 sudo pip install --pre --upgrade cassandra-driver
 # ..use the latest ccm HEAD
 git clone https://github.com/pcmanus/ccm.git
