@@ -7,7 +7,10 @@ sudo apt-get -y install ant ant-optional git libev-dev libyaml-dev lsof python-d
 # install some python modules that we need
 sudo pip install blist cql decorator flaky futures nose-test-select pycassa
 # install/upgrade the latest cassandra-driver in pypi, including pre-releases
-sudo pip install --pre --upgrade cassandra-driver
+#sudo pip install --pre --upgrade cassandra-driver
+# install python-driver from cassandra-test branch - this branch will get releases merged, as well as unreleased dev features
+git clone -b cassandra-test https://github.com/datastax/python-driver.git
+sudo pip install -e python-driver
 # ..use the latest ccm HEAD
 git clone https://github.com/pcmanus/ccm.git
 sudo pip install -e ccm
