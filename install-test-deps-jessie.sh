@@ -5,7 +5,7 @@ sudo sh -c 'echo "umask 0022" >> /etc/profile'
 # install some basic packages we need
 sudo apt-get -y install ant ant-optional git libev-dev libyaml-dev lsof python-dev python-setuptools python-pip rsync screen wamerican
 # install some python modules that we need
-sudo pip install blist cql decorator enum34 flaky futures nose-test-select psutil pycassa
+sudo pip install blist cql decorator enum34 flaky futures nose-test-select pep8 psutil pycassa
 # install/upgrade the latest cassandra-driver in pypi, including pre-releases
 #sudo pip install --pre --upgrade cassandra-driver
 # install python-driver from cassandra-test branch - this branch will get releases merged, as well as unreleased dev features
