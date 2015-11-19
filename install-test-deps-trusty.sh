@@ -1,4 +1,8 @@
 #!/bin/bash -xe
+
+# Set default arguments if not passed
+set -- "${1:-pcmanus}" "${2:-master}"
+
 # fix default umask of 0002 for hadoop data dir errors
 sudo sh -c 'echo "umask 0022" >> /etc/profile'
 
@@ -12,5 +16,5 @@ sudo pip install blist cql decorator enum34 flaky futures nose-test-select pep8 
 git clone -b cassandra-test https://github.com/datastax/python-driver.git
 sudo pip install -e python-driver
 # ..use the latest ccm HEAD
-git clone https://github.com/pcmanus/ccm.git
+git clone -b $2 https://github.com/$1/ccm.git
 sudo pip install -e ccm
