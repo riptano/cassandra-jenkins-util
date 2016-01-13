@@ -7,7 +7,7 @@ CCM_BRANCH=${2:-master}
 # fix default umask of 0002 for hadoop data dir errors
 sudo sh -c 'echo "umask 0022" >> /etc/profile'
 # remove ctool-installed maven config, so we're using cassandra's preferred upstreams
-rm ~/.m2/settings.xml
+rm -f ~/.m2/settings.xml
 
 # install some basic packages we need
 sudo apt-get -y install ant ant-optional git libev-dev libyaml-dev lsof python-dev python-setuptools python-pip rsync screen wamerican
