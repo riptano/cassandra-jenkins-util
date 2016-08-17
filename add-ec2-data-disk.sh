@@ -14,5 +14,6 @@ if grep $PARTITION /proc/partitions; then
     echo "Remounted / with noatime,nodiratime,barrier=0"
 else
     echo "Data Partition Not Found!"
-    exit 1
 fi
+
+exit 0

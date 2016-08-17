@@ -11,5 +11,6 @@ if grep $PARTITION /proc/partitions; then
     echo "Done Setting Up Data Disk."
 else
     echo "Data Partition Not Found!"
-    exit 1
 fi
+
+exit 0
