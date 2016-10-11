@@ -10,10 +10,12 @@ if grep $PARTITION /proc/partitions; then
     sudo sh -c "echo \"export TMPDIR=$MOUNTPOINT/tmp\" >> /etc/profile"
     export TMPDIR=$MOUNTPOINT/tmp
     echo "Done Setting Up Data Disk."
-    sudo mount -o remount,noatime,nodiratime,barrier=0 /dev/sda1 /
-    echo "Remounted / with noatime,nodiratime,barrier=0"
 else
     echo "Data Partition Not Found!"
 fi
+
+sudo mount -o remount,noatime,nodiratime,nobarrier /
+echo "Remounted / with noatime,nodiratime,nobarrier"
+mount | grep ^/dev
 
 exit 0
