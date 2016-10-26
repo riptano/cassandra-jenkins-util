@@ -1,11 +1,12 @@
 #!/bin/bash -xe
 
 # fix default umask of 0002 for hadoop data dir errors
-# export python-driver cython suppression env vars to all users (`sudo pip install ..` needs root to have this env, too)
-sudo sh -c 'cat << EOF >> /etc/profile
-umask 0022
-export CASS_DRIVER_NO_CYTHON="true"
-export CASS_DRIVER_NO_EXTENSIONS="true"
+sudo sh -c 'echo "umask 0022" >> /etc/profile'
+# set python-driver cython suppression env vars for all users
+#  `sudo pip install ..` needs root to have this env, too, and the sudoers env_reset won't pull this from /etc/profile
+sudo sh -c 'cat << EOF >> /etc/environment
+CASS_DRIVER_NO_CYTHON="true"
+CASS_DRIVER_NO_EXTENSIONS="true"
 EOF'
 
 # install some basic packages we need
