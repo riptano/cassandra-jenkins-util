@@ -10,7 +10,7 @@ sudo sh -c 'echo "umask 0022" >> /etc/profile'
 #rm -f ~/.m2/settings.xml
 
 # install some basic packages we need
-sudo apt-get -y install ant ant-optional git libev-dev libyaml-dev lsof python-dev python-setuptools python-pip rsync screen wamerican
+sudo apt-get -y install ant ant-optional git libaio1 libev-dev libyaml-dev lsof python-dev python-setuptools python-pip rsync screen wamerican
 # install some python modules that we need
 sudo pip install --upgrade cql decorator docopt enum34 flaky futures mock nose nose-test-select parse pep8 psutil pycassa xunitmerge
 # install/upgrade the latest cassandra-driver in pypi, including pre-releases
