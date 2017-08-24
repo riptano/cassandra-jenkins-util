@@ -11,3 +11,9 @@ EOF'
 
 # install some basic packages we need
 sudo apt-get -y install ant ant-optional git libaio1 libev-dev libyaml-dev lsof python-dev python-setuptools python-pip rsync screen wamerican
+
+# work around failing DNS queries for github.com, since they switched to a 60sec TTL
+# - min-cache-ttl max is 1hr and requires dnsmasq >= 2.73, which is available on Ubuntu 16.04 (Xenial) and Debian 9 (Stretch)
+sudo apt-get -y install dnsmasq resolvconf
+sudo sh -c 'echo min-cache-ttl=3600 >> /etc/dnsmasq.conf'
+sudo service dnsmasq restart
